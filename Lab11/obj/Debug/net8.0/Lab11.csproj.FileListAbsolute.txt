@@ -1,0 +1,12 @@
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/bin/Debug/net8.0/Lab11.deps.json
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/bin/Debug/net8.0/Lab11.dll
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/bin/Debug/net8.0/Lab11.pdb
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.GeneratedMSBuildEditorConfig.editorconfig
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.AssemblyInfoInputs.cache
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.AssemblyInfo.cs
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.csproj.CoreCompileInputs.cache
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.sourcelink.json
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.dll
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/refint/Lab11.dll
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/Lab11.pdb
+/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/Debug/net8.0/ref/Lab11.dll

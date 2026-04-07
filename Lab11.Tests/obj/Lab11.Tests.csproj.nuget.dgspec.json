@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11.Tests/Lab11.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11.Tests/Lab11.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11.Tests/Lab11.Tests.csproj",
+        "projectName": "Lab11.Tests",
+        "projectPath": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11.Tests/Lab11.Tests.csproj",
+        "packagesPath": "/home/nobaraneko/.nuget/packages/",
+        "outputPath": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nobaraneko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/Lab11.csproj": {
+                "projectPath": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/Lab11.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.6.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.124/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/Lab11.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/Lab11.csproj",
+        "projectName": "Lab11",
+        "projectPath": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/Lab11.csproj",
+        "packagesPath": "/home/nobaraneko/.nuget/packages/",
+        "outputPath": "/home/nobaraneko/Documents/School/CS1410/lab-11-snake-JOSnow985/Lab11/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nobaraneko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/8.0.124/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
