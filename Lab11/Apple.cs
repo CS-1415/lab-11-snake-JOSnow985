@@ -1,0 +1,8 @@
+namespace Lab11;
+
+// Cell struct holding a location on the board (e.g. Row and Column)
+public struct Cell
+{
+    public int X {get; private set;}
+    public int Y {get; private set;}
+}
