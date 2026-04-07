@@ -11,6 +11,14 @@ public class Snake
     public char CurrentDirection {get; private set; }
     public Board Board { get; private set; }
 
+    public Snake(string playerName, List<Cell> headTail, char currentDirection, Board board)
+    {
+        PlayerName = playerName;
+        OccupiedCells = headTail;
+        CurrentDirection = currentDirection;
+        Board = board;
+    }
+
     void TurnDirection(char dir){}
     // MoveForward: appends the next cell in the current direction to the end of the occupied cell list and removes the first cell in the list (which is the end of the tail)
     bool MoveForward()
