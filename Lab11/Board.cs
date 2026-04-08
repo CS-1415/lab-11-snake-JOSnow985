@@ -6,6 +6,7 @@ public class Board
     public int Length {get; private set;}
     public int Width {get; private set;}
     public Cell Apple;
+    public List<Snake> Snakes = [];
 
     public Board(int length, int width, Cell apple)
     {
