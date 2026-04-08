@@ -20,12 +20,57 @@ public class Snake
     }
 
     public void TurnDirection(char dir) => CurrentDirection = dir;
+
     // MoveForward: appends the next cell in the current direction to the end of the occupied cell list and removes the first cell in the list (which is the end of the tail)
-    public bool MoveForward(bool appleWasEaten)
+    public bool MoveForward()
     {
-        // if the apple was eaten, then the end of the tail isn't removed
-	    // if the head runs into the wall or another player, then return false, otherwise return true)
-        return false;
+        // Figure out which cell we're trying to move into
+        (int X, int Y) targetCell;
+        switch (CurrentDirection)
+        {
+            case 'N':
+                targetCell = (OccupiedCells[^1].X, OccupiedCells[^1].Y - 1);
+                break;
+            case 'E':
+                targetCell = (OccupiedCells[^1].X + 1, OccupiedCells[^1].Y);
+                break;
+            case 'S':
+                targetCell = (OccupiedCells[^1].X, OccupiedCells[^1].Y + 1);
+                break;
+            case 'W':
+                targetCell = (OccupiedCells[^1].X - 1, OccupiedCells[^1].Y);
+                break;
+            default:
+                return false;   // If we don't have a valid direction, something has gone very wrong, so just return false
+        }
+
+        // If we're exceeding the bounds of the board, we bonk
+        if (targetCell.X > Board.Width || targetCell.Y > Board.Length)
+            return false;
+
+        // If we're trying to enter an occupied cell, we bonk (Apple cells aren't "occupied")
+        foreach (Snake snek in Board.Snakes)
+        {
+            foreach (Cell cell in snek.OccupiedCells)
+            {
+                if (targetCell.X == cell.X && targetCell.Y == cell.Y)
+                    return false;
+            }
+        }
+
+        // Check if we're entering the same cell as the apple
+        if (targetCell.X == Board.Apple.X && targetCell.Y == Board.Apple.Y)
+        {
+            // Tell Board to reroll the apple location
+        }
+        else
+        {
+            OccupiedCells.RemoveAt(0);  // If the snake isn't eating an apple, remove the first entry in the cell list
+        }
+
+        // If we've gotten past all the checks, we need to add a new cell to the bottom of the list
+        OccupiedCells.Add(new(targetCell.X, targetCell.Y));
+        return true;
     }
     // a test method (this will be useful to have as a member method so that you can inspect the elements of the list of occupied cells)
     void Test(){}
