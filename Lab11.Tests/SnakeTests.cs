@@ -4,13 +4,13 @@ namespace Lab11.Tests;
 
 public class SnakeTests
 {
-    Board testBoard;
-    Snake testSnake;
+    static Board testBoard = new(5, 5, new(3,3));
+    static Snake testSnake = new("testPlayer", [new(0,0), new(1,0), new(2,0)], 'E', ref testBoard);
 
     [SetUp]
     public void Setup()
     {
-        Board testBoard =  new();
+        Board testBoard =  new(5, 5, new(3,3));
         // A snake instance that starts at the top left corner and is facing east
         Snake testSnake = new("testPlayer", [new(0,0), new(1,0), new(2,0)], 'E', ref testBoard);
     }
@@ -69,7 +69,18 @@ public class SnakeTests
             {
                 Assert.Pass();  // Test passes if the old tail cell has been removed and the new head cell has been added
             }
+            else if (lastCellRemoved == false && newCellAdded == true)
+            {
+                Assert.Fail("The last cell wasn't correctly removed, but a new cell was added.");
+            }
+            else if (lastCellRemoved == true && newCellAdded == false)
+            {
+                Assert.Fail("The last cell was removed, but a new cell was not correctly added.");
+            }
         }
-        Assert.Fail();  // If we got here at all that means the test has failed
+        else
+        {
+            Assert.Fail("testSnake.MoveForward() returned false");  // If we got here at all that means the test has failed}
+        }
     }
 }
