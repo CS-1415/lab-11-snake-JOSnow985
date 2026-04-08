@@ -7,8 +7,34 @@ public class SnakeTests
     {
     }
 
+    // --- Tests for turning each possible direction ---
     [Test]
-    public void Test1()
+    public void TurnNorthTest()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    public void TurnEastTest()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    public void TurnSouthTest()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    public void TurnWestTest()
+    {
+        Assert.Pass();
+    }
+
+    // --- Test for moving a snake forward in the direction it's looking ---
+    [Test]
+    public void MoveForwardTest()
     {
         Assert.Pass();
     }
