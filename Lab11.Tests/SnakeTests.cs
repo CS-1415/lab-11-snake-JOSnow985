@@ -48,7 +48,7 @@ public class SnakeTests
     public void MoveForwardTest()
     {
         // With a freshly constructed Snake instance, moving forward should return true (success)
-        if (testSnake.MoveForward())
+        if (testSnake.MoveForward(false))
         {
             bool lastCellRemoved = true;
             bool newCellAdded = false;
@@ -71,6 +71,46 @@ public class SnakeTests
             else if (lastCellRemoved == false && newCellAdded == true)
             {
                 Assert.Fail("The last cell wasn't correctly removed, but a new cell was added.");
+            }
+            else if (lastCellRemoved == true && newCellAdded == false)
+            {
+                Assert.Fail("The last cell was removed, but a new cell was not correctly added.");
+            }
+        }
+        else
+        {
+            Assert.Fail("testSnake.MoveForward() returned false");  // If we got here at all that means the test has failed}
+        }
+    }
+
+    // --- MoveForward but the snake has eaten an apple ---
+    [Test]
+    public void AppleEatenTest()
+    {
+        // With a freshly constructed Snake instance, moving forward should return true (success)
+        if (testSnake.MoveForward(true))
+        {
+            bool lastCellRemoved = true;
+            bool newCellAdded = false;
+
+            foreach (Cell cell in testSnake.OccupiedCells)
+            {
+                if (cell.X == 0 && cell.Y == 0)
+                {
+                    lastCellRemoved = false;
+                }
+                else if (cell.X == 3 && cell.Y == 0)
+                {
+                    newCellAdded = true;
+                }
+            }
+            if (lastCellRemoved == true && newCellAdded == true)
+            {
+                Assert.Fail("The last cell was removed and a new cell was added.");
+            }
+            else if (lastCellRemoved == false && newCellAdded == true)
+            {
+                Assert.Pass();  // This test passes if just a new cell was added
             }
             else if (lastCellRemoved == true && newCellAdded == false)
             {
