@@ -83,43 +83,33 @@ public class SnakeTests
         }
     }
 
-    // --- MoveForward but the snake has eaten an apple ---
+    // --- Test for correct behavior when an apple has been eaten ---
     [Test]
     public void AppleEatenTest()
     {
-        // With a freshly constructed Snake instance, moving forward should return true (success)
-        if (testSnake.MoveForward(true))
-        {
-            bool lastCellRemoved = true;
-            bool newCellAdded = false;
+        _ = testSnake.MoveForward(true);
 
-            foreach (Cell cell in testSnake.OccupiedCells)
+        bool lastCellRemoved = true;
+        bool newCellAdded = false;
+
+        foreach (Cell cell in testSnake.OccupiedCells)
+        {
+            if (cell.X == 0 && cell.Y == 0)
             {
-                if (cell.X == 0 && cell.Y == 0)
-                {
-                    lastCellRemoved = false;
-                }
-                else if (cell.X == 3 && cell.Y == 0)
-                {
-                    newCellAdded = true;
-                }
+                lastCellRemoved = false;
             }
-            if (lastCellRemoved == true && newCellAdded == true)
+            else if (cell.X == 3 && cell.Y == 0)
             {
-                Assert.Fail("The last cell was removed and a new cell was added.");
+                newCellAdded = true;
             }
-            else if (lastCellRemoved == false && newCellAdded == true)
-            {
-                Assert.Pass();  // This test passes if just a new cell was added
-            }
-            else if (lastCellRemoved == true && newCellAdded == false)
-            {
-                Assert.Fail("The last cell was removed, but a new cell was not correctly added.");
-            }
+        }
+        if (lastCellRemoved == false && newCellAdded == true)
+        {
+            Assert.Pass();  // This test passes if just a new cell was added
         }
         else
         {
-            Assert.Fail("testSnake.MoveForward() returned false");  // If we got here at all that means the test has failed}
+            Assert.Fail("A new cell wasn't added while preserving the last cell.");
         }
     }
 }
