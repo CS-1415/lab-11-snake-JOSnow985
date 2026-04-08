@@ -19,9 +19,9 @@ public class Snake
         Board = board;
     }
 
-    void TurnDirection(char dir) => CurrentDirection = dir;
+    public void TurnDirection(char dir) => CurrentDirection = dir;
     // MoveForward: appends the next cell in the current direction to the end of the occupied cell list and removes the first cell in the list (which is the end of the tail)
-    bool MoveForward()
+    public bool MoveForward()
     {
         // if the apple was eaten, then the end of the tail isn't removed
 	    // if the head runs into the wall or another player, then return false, otherwise return true)
