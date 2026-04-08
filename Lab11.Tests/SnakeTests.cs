@@ -4,12 +4,13 @@ namespace Lab11.Tests;
 
 public class SnakeTests
 {
-    static Board testBoard = new(5, 5, new(3,3));
+    Board testBoard;
     Snake testSnake;
 
     [SetUp]
     public void Setup()
     {
+        testBoard = new(5, 5, new(3,3));
         // A snake instance that starts at the top left corner and is facing east
         testSnake = new("testPlayer", [new(0,0), new(1,0), new(2,0)], 'E', ref testBoard);
     }
@@ -48,7 +49,7 @@ public class SnakeTests
     public void MoveForwardTest()
     {
         // With a freshly constructed Snake instance, moving forward should return true (success)
-        if (testSnake.MoveForward(false))
+        if (testSnake.MoveForward())
         {
             bool lastCellRemoved = true;
             bool newCellAdded = false;
@@ -87,7 +88,10 @@ public class SnakeTests
     [Test]
     public void AppleEatenTest()
     {
-        _ = testSnake.MoveForward(true);
+        // Force Apple to cell in front of snake
+        testBoard.Apple = new(3,0);
+
+        _ = testSnake.MoveForward();
 
         bool lastCellRemoved = true;
         bool newCellAdded = false;
@@ -120,7 +124,7 @@ public class SnakeTests
         // The snake is on the edge of the board and moving into the wall
         testSnake = new("testPlayer", [new(3,0), new(4,0), new(5,0)], 'E', ref testBoard);
         // MoveForward should return false if the snake runs into a wall
-        if (testSnake.MoveForward(false))
+        if (testSnake.MoveForward())
         {
             Assert.Pass();
         }
