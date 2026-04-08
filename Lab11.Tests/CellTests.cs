@@ -1,6 +1,6 @@
 namespace Lab11.Tests;
 
-public class Tests
+public class CellTests
 {
     [SetUp]
     public void Setup()
