@@ -6,4 +6,11 @@ public class Board
     public int Length {get; private set;}
     public int Width {get; private set;}
     public Cell Apple;
+
+    public Board(int length, int width, Cell apple)
+    {
+        Length = length;
+        Width = width;
+        Apple = apple;
+    }
 }
