@@ -124,13 +124,6 @@ public class SnakeTests
         // The snake is on the edge of the board and moving into the wall
         testSnake = new("testPlayer", [new(3,0), new(4,0), new(5,0)], 'E', ref testBoard);
         // MoveForward should return false if the snake runs into a wall
-        if (testSnake.MoveForward())
-        {
-            Assert.Pass();
-        }
-        else
-        {
-            Assert.Fail("Snake was allowed to move past wall");
-        }
+        Assert.That(testSnake.MoveForward(), Is.EqualTo(false));
     }
 }
