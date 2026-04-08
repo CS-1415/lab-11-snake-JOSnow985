@@ -5,14 +5,13 @@ namespace Lab11.Tests;
 public class SnakeTests
 {
     static Board testBoard = new(5, 5, new(3,3));
-    static Snake testSnake = new("testPlayer", [new(0,0), new(1,0), new(2,0)], 'E', ref testBoard);
+    Snake testSnake;
 
     [SetUp]
     public void Setup()
     {
-        Board testBoard =  new(5, 5, new(3,3));
         // A snake instance that starts at the top left corner and is facing east
-        Snake testSnake = new("testPlayer", [new(0,0), new(1,0), new(2,0)], 'E', ref testBoard);
+        testSnake = new("testPlayer", [new(0,0), new(1,0), new(2,0)], 'E', ref testBoard);
     }
 
     // --- Tests for turning each possible direction ---
