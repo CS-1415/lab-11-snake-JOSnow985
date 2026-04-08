@@ -11,7 +11,7 @@ public class Snake
     public char CurrentDirection {get; private set; }
     public Board Board { get; private set; }
 
-    public Snake(string playerName, List<Cell> headTail, char currentDirection, Board board)
+    public Snake(string playerName, List<Cell> headTail, char currentDirection, ref Board board)
     {
         PlayerName = playerName;
         OccupiedCells = headTail;
