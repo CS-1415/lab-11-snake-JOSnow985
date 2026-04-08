@@ -79,7 +79,7 @@ public class SnakeTests
         }
         else
         {
-            Assert.Fail("testSnake.MoveForward() returned false");  // If we got here at all that means the test has failed}
+            Assert.Fail("testSnake.MoveForward() returned false");  // If we got here at all that means the test has failed
         }
     }
 
@@ -110,6 +110,23 @@ public class SnakeTests
         else
         {
             Assert.Fail("A new cell wasn't added while preserving the last cell.");
+        }
+    }
+
+    // --- Test for moving a snake forward in the direction it's looking ---
+    [Test]
+    public void SnakeBonkTest()
+    {
+        // The snake is on the edge of the board and moving into the wall
+        testSnake = new("testPlayer", [new(3,0), new(4,0), new(5,0)], 'E', ref testBoard);
+        // MoveForward should return false if the snake runs into a wall
+        if (testSnake.MoveForward(false))
+        {
+            Assert.Pass();
+        }
+        else
+        {
+            Assert.Fail("Snake was allowed to move past wall");
         }
     }
 }
