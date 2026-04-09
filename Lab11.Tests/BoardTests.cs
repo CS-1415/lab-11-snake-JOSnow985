@@ -48,6 +48,7 @@ public class BoardTests
     [Test]
     public void AppleSpawnTest()
     {
+        // Run the move method twice as many times as possible cells we can have
         for (int i = 0; i < testBoard.Length * testBoard.Width * 2; i++)
         {
             // Move the apple to a new location
