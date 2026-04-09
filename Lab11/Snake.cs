@@ -19,7 +19,21 @@ public class Snake
         Board = board;
     }
 
-    public void TurnDirection(char dir) => CurrentDirection = dir;
+    // Don't let the snake invert it's direction and bonk instantly
+    public void TurnDirection(char dir)
+    {
+        switch (CurrentDirection)
+        {
+            case 'N' when dir == 'S':
+            case 'E' when dir == 'W':
+            case 'W' when dir == 'E':
+            case 'S' when dir == 'N':
+                return;
+            default:
+                break;
+        }
+        CurrentDirection = dir;
+    }
 
     // MoveForward: appends the next cell in the current direction to the end of the occupied cell list and removes the first cell in the list (which is the end of the tail)
     public bool MoveForward()
