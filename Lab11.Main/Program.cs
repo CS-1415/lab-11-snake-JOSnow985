@@ -138,7 +138,7 @@ void DrawCell(Cell cell, char symbol, ConsoleColor color)
 void DrawBoard(List<Snake> snakes, Cell apple)
 {
 	ConsoleColor color;
-	char symbol = ' ';
+	char symbol;
 	foreach (Snake snek in snakes)
 	{
 		// Decide what color we should print the snake's cells in
