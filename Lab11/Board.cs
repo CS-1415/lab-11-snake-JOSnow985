@@ -15,11 +15,11 @@ public class Board
         Width = width;
         Apple = apple;
     }
-    public Board(Cell apple)
+    public Board()
     {
         Length = Console.BufferHeight;
         Width = Console.BufferWidth;
-        Apple = apple;
+        Apple = new(Width / 2, Length / 2);
     }
 
     public void moveApple()

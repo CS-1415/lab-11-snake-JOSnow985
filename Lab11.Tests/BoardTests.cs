@@ -21,7 +21,7 @@ public class BoardTests
     {
         // Board should let us construct an instance without specifying bounds
         // It should find the console's width and height to use as bounds
-        Board boundBoard = new(new(3,3));
+        Board boundBoard = new();
 
         // Check that the width and length are equal to console buffer width and height, respectively
         Assert.Multiple(() =>
