@@ -31,6 +31,7 @@ public class BoardTests
         });
     }
 
+    // This test might fail if the same location is randomly selected, because a snake isn't occupying that cell yet
     [Test]
     public void MoveAppleTest()
     {
