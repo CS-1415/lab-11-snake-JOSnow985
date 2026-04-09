@@ -33,7 +33,7 @@ Console.WriteLine("What should the blue snake be named?");
 string blueName = "";
 while (blueName == "")
 {
-	redName = Console.ReadLine()!;
+	blueName = Console.ReadLine()!;
 }
 
 // Set up board and snakes
@@ -44,7 +44,10 @@ gameBoard.Snakes.Add(redSnake);
 gameBoard.Snakes.Add(blueSnake);
 
 bool gameOver = false;
-string winningSnake = "";
+string winnerName = "";
+
+// We don't want the cursor to be visible while we're playing
+Console.CursorVisible = false;
 
 while (!gameOver)
 {
@@ -52,7 +55,7 @@ while (!gameOver)
 	DrawBoard(gameBoard.Snakes, gameBoard.Apple);
 
 	// Wait a period of time to collect inputs for snake directions or exit
-	Thread.Sleep(1000);
+	Thread.Sleep(125);
 
 	// While we have inputs to process, run them through the method to update the Snake directions or exit
 	while (Console.KeyAvailable)
@@ -74,20 +77,25 @@ while (!gameOver)
 		gameOver = true;
 
 		// Deciding who won, currently just who survived the longest
+		// Not sure it's currently possible to tie on a head-on collision
 		if (!redSnakeAlive && !blueSnakeAlive)
 		{
-			winningSnake = "Neither! It's a tie!";
+			winnerName = "Neither! It's a tie!";
 		}
 		else if (redSnakeAlive && !blueSnakeAlive)
 		{
-			winningSnake = "Red Snake!";
+			winnerName = $"{redSnake.PlayerName}!";
 		}
 		else if (!redSnakeAlive && blueSnakeAlive)
 		{
-			winningSnake = "Blue Snake!";
+			winnerName = $"{blueSnake.PlayerName}!";
 		}
 	}
 }
+Console.CursorVisible = true;
+Console.BackgroundColor = ConsoleColor.Black;
+Console.Clear();
+Console.WriteLine($"The winner is... {winnerName}");
 
 // --- Methods ---
 
