@@ -61,7 +61,7 @@ public class Snake
         // Check if we're entering the same cell as the apple
         if (targetCell.X == Board.Apple.X && targetCell.Y == Board.Apple.Y)
         {
-            // Tell Board to reroll the apple location
+            Board.moveApple();
         }
         else
         {
