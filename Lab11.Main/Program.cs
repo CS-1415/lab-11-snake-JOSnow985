@@ -43,43 +43,49 @@ Snake blueSnake = new(blueName, [new(gameBoard.Width,gameBoard.Length), new(game
 gameBoard.Snakes.Add(redSnake);
 gameBoard.Snakes.Add(blueSnake);
 
-// Input Handling
-ConsoleKeyInfo keyInfo = Console.ReadKey();
-switch (keyInfo.Key)
-{
-	// Keys We Want
-    case ConsoleKey.W:
-		redSnake.TurnDirection('N');
-		break;
-    case ConsoleKey.A:
-		redSnake.TurnDirection('W');
-		break;
-    case ConsoleKey.S:
-		redSnake.TurnDirection('S');
-		break;
-    case ConsoleKey.D:
-		redSnake.TurnDirection('E');
-		break;
-    case ConsoleKey.UpArrow:
-		blueSnake.TurnDirection('N');
-		break;
-    case ConsoleKey.RightArrow:
-		blueSnake.TurnDirection('E');
-		break;
-    case ConsoleKey.DownArrow:
-		blueSnake.TurnDirection('S');
-		break;
-    case ConsoleKey.LeftArrow:
-		blueSnake.TurnDirection('W');
-		break;
-    case ConsoleKey.Escape:
-		return;		// If I have time, have this end the game early and announce the winner based on length instead
-	// Any keys we don't want
-    default:
-        break;
-}
+
 
 // --- Methods ---
+
+// Input Handling, returns false on Escape so we know to exit
+bool handleKeystroke(ConsoleKeyInfo keyInfo)
+{
+	switch (keyInfo.Key)
+	{
+		// Keys We Want
+		// Red Snake
+		case ConsoleKey.W:
+			redSnake.TurnDirection('N');
+			break;
+		case ConsoleKey.A:
+			redSnake.TurnDirection('W');
+			break;
+		case ConsoleKey.S:
+			redSnake.TurnDirection('S');
+			break;
+		case ConsoleKey.D:
+			redSnake.TurnDirection('E');
+			break;
+		// Blue Snake
+		case ConsoleKey.UpArrow:
+			blueSnake.TurnDirection('N');
+			break;
+		case ConsoleKey.RightArrow:
+			blueSnake.TurnDirection('E');
+			break;
+		case ConsoleKey.DownArrow:
+			blueSnake.TurnDirection('S');
+			break;
+		case ConsoleKey.LeftArrow:
+			blueSnake.TurnDirection('W');
+			break;
+		case ConsoleKey.Escape:
+			return false;       // If I have time, have this end the game early and announce the winner based on length instead
+		default:
+			break;
+	}
+	return true;
+}
 
 void DrawCell(Cell cell, char symbol, ConsoleColor color)
 {
