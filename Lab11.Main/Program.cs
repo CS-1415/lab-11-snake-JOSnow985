@@ -19,7 +19,7 @@ The following might help if you choose to have the snakes advance at time interv
 using Lab11;
 
 Console.Clear();
-Console.WriteLine("Hello, this is a multiplayer snake game!\nThe blue snake is controlled with WASD, the red snake with the arrow keys!\nAvoid the other snake and the walls while eating the apple to grow.\nThe winner will be printed at the end of the game.\n");
+Console.WriteLine("Hello, this is a multiplayer snake game!\nThe red snake is controlled with WASD, the blue snake with the arrow keys!\nAvoid the other snake and the walls while eating the apple to grow.\nThe winner will be printed at the end of the game.\n");
 
 // Collect the snake names for later printing
 Console.WriteLine("What should the red snake be named?");
@@ -43,7 +43,51 @@ Snake blueSnake = new(blueName, [new(gameBoard.Width,gameBoard.Length), new(game
 gameBoard.Snakes.Add(redSnake);
 gameBoard.Snakes.Add(blueSnake);
 
+bool gameOver = false;
+string winningSnake = "";
 
+while (!gameOver)
+{
+	Console.Clear();
+	DrawBoard(gameBoard.Snakes, gameBoard.Apple);
+
+	// Wait a period of time to collect inputs for snake directions or exit
+	Thread.Sleep(1000);
+
+	// While we have inputs to process, run them through the method to update the Snake directions or exit
+	while (Console.KeyAvailable)
+	{
+		// If someone pressed Escape, we set gameOver to true
+		if (!handleKeystroke(Console.ReadKey(true)))
+		{
+			gameOver = true;
+		}
+	}
+
+	// Move snakes and capture the booleans from them
+	bool redSnakeAlive = redSnake.MoveForward();
+	bool blueSnakeAlive = blueSnake.MoveForward();
+
+	if (!redSnakeAlive || !blueSnakeAlive)
+	{
+		// If either snake bonked, the game is over
+		gameOver = true;
+
+		// Deciding who won, currently just who survived the longest
+		if (!redSnakeAlive && !blueSnakeAlive)
+		{
+			winningSnake = "Neither! It's a tie!";
+		}
+		else if (redSnakeAlive && !blueSnakeAlive)
+		{
+			winningSnake = "Red Snake!";
+		}
+		else if (!redSnakeAlive && blueSnakeAlive)
+		{
+			winningSnake = "Blue Snake!";
+		}
+	}
+}
 
 // --- Methods ---
 
