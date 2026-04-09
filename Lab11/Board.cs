@@ -48,7 +48,6 @@ public class Board
             {
                 // If the coordinates don't, we can safely generate an apple at those coordinates
                 Apple = new(newAppleCoordinates.X, newAppleCoordinates.Y);
-                Console.WriteLine(attemptsAtPlacement);
                 return;
             }
 
