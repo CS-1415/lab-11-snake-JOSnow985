@@ -43,3 +43,55 @@ Snake blueSnake = new(blueName, [new(gameBoard.Width,gameBoard.Length), new(game
 gameBoard.Snakes.Add(redSnake);
 gameBoard.Snakes.Add(blueSnake);
 
+
+
+// --- Methods ---
+
+void DrawCell(Cell cell, char symbol, ConsoleColor color)
+{
+	Console.BackgroundColor = color;
+	Console.SetCursorPosition(cell.X, cell.Y);
+	Console.Write(symbol);
+	Console.BackgroundColor = ConsoleColor.Black;
+}
+
+void DrawBoard(List<Snake> snakes, Cell apple)
+{
+	ConsoleColor color;
+	char symbol = ' ';
+	foreach (Snake snek in snakes)
+	{
+		// Decide what color we should print the snake's cells in
+		if (snek == snakes[0])
+			color = ConsoleColor.DarkRed;
+		else if (snek == snakes[1])
+			color = ConsoleColor.Blue;
+		else
+			color = ConsoleColor.White;
+
+		foreach (Cell cell in snek.OccupiedCells)
+		{
+			// Print a different symbol based on if it's the head, body, or tail
+			// Head
+			if(cell.X == snek.OccupiedCells[^1].X && cell.Y == snek.OccupiedCells[^1].Y)  // Can't compare cells directly without implementing that
+			{
+				symbol = snek.CurrentDirection switch
+				{
+					'N' => '^',
+					'E' => '>',
+					'S' => 'v',
+					'W' => '<',
+					_ => 'H'
+				};
+			}
+			// Tail
+			else if(cell.X == snek.OccupiedCells[0].X && cell.Y == snek.OccupiedCells[0].Y)
+				symbol = ':';
+			else
+				symbol = 'O';
+
+			DrawCell(cell, symbol, color);
+		}
+	}
+	DrawCell(gameBoard.Apple, '@', ConsoleColor.Red);
+}
