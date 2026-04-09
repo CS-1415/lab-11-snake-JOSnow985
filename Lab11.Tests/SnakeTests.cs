@@ -40,6 +40,9 @@ public class SnakeTests
     [Test]
     public void TurnWestTest()
     {
+        // Move the snake to the South first so it can turn West
+        testSnake.TurnDirection('S');
+        testSnake.MoveForward();
         testSnake.TurnDirection('W');
         Assert.That(testSnake.CurrentDirection, Is.EqualTo('W'));
     }
