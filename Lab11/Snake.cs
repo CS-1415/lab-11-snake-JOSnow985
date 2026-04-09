@@ -58,7 +58,11 @@ public class Snake
             }
         }
 
-        // Check if we're entering the same cell as the apple
+        // We need to add a new cell to the bottom of the list before trying to move the apple,
+        // otherwise it won't know the cell isn't available
+        OccupiedCells.Add(new(targetCell.X, targetCell.Y));
+
+        // Check if we've entered the same cell as the apple
         if (targetCell.X == Board.Apple.X && targetCell.Y == Board.Apple.Y)
         {
             Board.moveApple();
@@ -67,9 +71,6 @@ public class Snake
         {
             OccupiedCells.RemoveAt(0);  // If the snake isn't eating an apple, remove the first entry in the cell list
         }
-
-        // If we've gotten past all the checks, we need to add a new cell to the bottom of the list
-        OccupiedCells.Add(new(targetCell.X, targetCell.Y));
         return true;
     }
     // a test method (this will be useful to have as a member method so that you can inspect the elements of the list of occupied cells)
