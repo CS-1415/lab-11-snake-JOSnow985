@@ -47,6 +47,8 @@ public class Snake
         // If we're exceeding the bounds of the board, we bonk
         if (targetCell.X > Board.Width || targetCell.Y > Board.Length)
             return false;
+        if (targetCell.X < 0 || targetCell.Y < 0)
+            return false;
 
         // If we're trying to enter an occupied cell, we bonk (Apple cells aren't "occupied")
         foreach (Snake snek in Board.Snakes)
